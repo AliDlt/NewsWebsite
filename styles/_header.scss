@@ -1,0 +1,23 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    color: #fff;
+    background-color: #10555A;
+    margin-bottom: 10px;
+
+    &__search {
+        input[type=text] {
+            padding: 6px;
+            border: none;
+        }
+
+        input[type=submit] {
+            float: right;
+            padding: 6px 10px;
+            border: none;
+            cursor: pointer;
+        }
+    }
+}
