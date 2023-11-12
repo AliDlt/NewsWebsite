@@ -7,8 +7,4 @@ $(document).ready(function () {
       $(this).height(200);
     }
   });
-
-  // $(".news__card").on("click", function () {
-  //       // window.location.href = ;
-  //   });
 });

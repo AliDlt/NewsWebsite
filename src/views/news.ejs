@@ -1,57 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>News Website</title>
-            <link rel="icon" type="image/x-icon" href="./img/news.ico">
-            <link rel="stylesheet" href="./css/styles.min.css">
-            <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
-            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    </head>
 
-    <body>
-        <header class="header">
-            <div class="header__logo">Node.Js News</div>
-            <%- include('./partials/search.ejs') %>
-        </header>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Website</title>
+    <link rel="icon" type="image/x-icon" href="./img/news.ico">
+    <link rel="stylesheet" href="./css/styles.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <%- include('./partials/header.ejs') %>
         <div class="wrapper">
             <div class="news">
                 <% if (allNews !=null) { %>
                     <% allNews.forEach(function (news, index) { %>
-                        <% if (news.image && news.image.trim() !=='') { %>
-                            <div class="news_card">
+                        <div class="news_card">
+                            <% if (news.image && news.image.trim() !=='' ) { %>
                                 <div class="news_image_container">
                                     <img class="news_image" src="<%- news.image %>" alt="<%- news.title %>">
                                     <div class="news_date_container">
                                         <i class="material-icons">date_range</i>
-                                        <span class="news_date"><%- news.published_at.slice(0, 10) %></span>
+                                        <span class="news_date"><%- news.publishDate.slice(0, 10) %></span>
                                     </div>
                                     <div class="news_flag_container">
                                         <img class="news_flag_image" src="./icons/US.svg" alt="us">
                                     </div>
                                 </div>
-                                <div>
-                                    <h3><%- news.title.slice(0, 50) %> ...</h3>
-                                    <p><%- news.description.slice(0, 100) %> ...</p>
-                                </div>
-                                <form method="POST" action="/news">
-                                    <!-- Add hidden input fields to store news data -->
-                                    <input type="hidden" name="title" value="<%- news.title %>">
-                                    <input type="hidden" name="description" value="<%- news.description %>">
-                                    <input type="hidden" name="url" value="<%- news.url %>">
-                                    <!-- Add a button to submit the form -->
-                                    <button class="news_btn_read" type="submit">Read More</button>
-                                </form>
-                            </div>
-                            <% } %>
-                                <% }) %>
-                                    <% } else { %>
-                                        No posts found.
-                                        <% } %>
+                                <% } %>
+                                    <div>
+                                        <h3><%- news.title.slice(0, 50) %> ...</h3>
+                                    </div>
+                                    <form method="POST" action="/newsSingle">
+                                        <input type="hidden" name="title" value="<%- news.title %>">
+                                        <input type="hidden" name="description" value="<%- news.description %>">
+                                        <input type="hidden" name="image" value="<%- news.image %>">
+                                        <input type="hidden" name="date" value="<%- news.publishDate.slice(0, 10) %>">
+                                        <input type="hidden" name="source" value="<%- news.source %>">
+                                        <input type="hidden" name="url" value="<%- news.url %>">
+                                        <button class="news_btn_read" type="submit">Read More</button>
+                                    </form>
+                        </div>
+                        <% }) %>
+                            <% } else { %>
+                                No posts found.
+                                <% } %>
             </div>
+
         </div>
-            <script src="./js/jquery-3.7.1.min.js"></script>
-            <script src="./js/scripts.js"></script>
-    </body>
+        <script src="./js/jquery-3.7.1.min.js"></script>
+        <script src="./js/scripts.js"></script>
+</body>
+
 </html>

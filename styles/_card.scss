@@ -1,4 +1,7 @@
 .news_card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     text-decoration: none;
     color: rgb(8, 8, 8);
     background-color: #fff;
@@ -19,7 +22,7 @@
     border-radius: 15px;
 }
 
-.news_date_container{
+.news_date_container {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -39,8 +42,8 @@
     color: black;
 }
 
-.news_flag_container{
-position: absolute;
+.news_flag_container {
+    position: absolute;
     bottom: 0;
     right: 0;
     padding: 5px 10px;
@@ -49,12 +52,12 @@ position: absolute;
     border-radius: 8px;
 }
 
-.news_flag_container .news_flag_image{
+.news_flag_container .news_flag_image {
     width: 32px;
     object-fit: cover;
 }
 
-.news_btn_read{
+.news_btn_read {
     width: 100%;
     text-align: center;
     padding: 12px 5px;

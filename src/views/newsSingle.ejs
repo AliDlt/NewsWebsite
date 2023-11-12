@@ -4,28 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Node.js News</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="./img/news.ico">
+    <title>
+        <%= title.slice(0,10) %>Node.js News
+    </title>
+    <link rel="stylesheet" href="/css/styles.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
-    <header class="header">
-        <div class="header__logo">Node.Js News</div>
-        <%- include('./partials/search.ejs') %>
-    </header>
+    <%- include('./partials/header.ejs') %>
+        <div class="wrapper">
 
-    <div class="wrapper">
-        <div class="news-single">
-            <a href="/">&larr;- Back</a>
-            <% if(article !=null) { %>
-                <h2><%- news.title %></h2>
-                <p><%- news.text %></p>
-                <% } else { %>
-                    No posts found.
-                    <% } %>
+
+            <div class="news-single">
+                <a href="javascript:history.back()" class="back-container"><i class="material-icons">arrow_back</i>
+                    Back to Home</a>
+                <article>
+                    <h2 class="news-single-title">
+                        <%= title %>
+                    </h2>
+                    <p class="news-single-date">Published on: <%= date %>
+                    </p>
+                    <% if (image && image.trim!=='' ) { %>
+                        <img class="news-single-image" src="<%= image %>" alt="<%= title %>">
+                        <% } %>
+                            <p class="news-single-description">
+                                <%= description %>
+                            </p>
+                            <p class="news-single-source"><a style="text-decoration: none;" target="_blank"
+                                    href="<%= url %>">Source
+                                    <%= source %>
+                                </a></p>
+                </article>
+            </div>
         </div>
-    </div>
 </body>
 
 </html>

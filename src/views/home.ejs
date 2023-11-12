@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Website</title>
+    <link rel="icon" type="image/x-icon" href="./img/news.ico">
+    <link rel="stylesheet" href="./css/styles.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <%- include('./partials/header.ejs') %>
+        <div class="container">
+            <div class="home_card">
+                <div class="home_image_container">
+                    <a href="/cnn"><img class="home_image" src="./img/cnn.png" alt="CNN"></a>
+                </div>
+            </div>
+            <div class="home_card">
+                <div class="home_image_container">
+                    <a href="/cbc"><img class="home_image" src="./img/cbc.png" alt="CBC"></a>
+                </div>
+            </div>
+            <div class="home_card">
+                <div class="home_image_container">
+                    <a href="/aljazeera"><img class="home_image" src="./img/aljazeera.png" alt="Aljazeera"></a>
+                </div>
+            </div>
+            <div class="home_card">
+                <div class="home_image_container">
+                    <a href="/nytimes"><img class="home_image" src="./img/nytimes.png" alt="New york times"></a>
+                </div>
+            </div>
+        </div>
+        <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>
